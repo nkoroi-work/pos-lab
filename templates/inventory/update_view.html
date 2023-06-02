@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}Update {{form_class}} {% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    {# Display a form #}
+    <form  method="post" class="form">
+        {% csrf_token %}
+
+        {% bootstrap_form form.as_p %}
+
+        {% bootstrap_button button_type="submit" content="OK" %}
+        {% bootstrap_button button_type="reset" content="Cancel" %}
+
+</form>
+</div>
+{% endblock %}

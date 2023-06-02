@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Inventory{% endblock %}
+
+{% block content %}
+
+{% load tags_file %}
+<div class="container">
+    {% if index_error %}
+        {% comment %}{% endcomment %}
+    {% else %}
+        {{ meat_model_instances|as_table }}
+    {% endif %}
+    {% if grocery_index_error %}
+        {% comment %}{% endcomment %}
+    {% else %}
+        {{ grocery_model_instances|as_table }}
+    {% endif %}
+    {% if spice_index_error %}
+    {% else %}
+        {{ spice_model_instances|as_table }}
+    {% endif %}
+    {% if condiment_index_error %}
+    {% else %}
+        {{ condiment_model_instances|as_table }}
+    {% endif %}
+    {% if product_index_error %}
+    {% else %}
+        {{ product_model_instances|as_table }}
+    {% endif %}
+</div>
+{% endblock %}
+
